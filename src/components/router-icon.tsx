@@ -1,0 +1,26 @@
+import { useId } from "react";
+
+/** Router's app icon: a road in perspective with a dashed center line. Matches src/app/icon.svg. */
+export function RouterIcon({ className }: { className?: string }) {
+  const id = useId();
+  return (
+    <svg viewBox="0 0 64 64" className={className} role="img" aria-label="Router">
+      <defs>
+        <linearGradient id={`${id}-bg`} x1="0" y1="0" x2="0" y2="1">
+          <stop offset="0" stopColor="#38bdf8" />
+          <stop offset="1" stopColor="#0369a1" />
+        </linearGradient>
+        <clipPath id={`${id}-clip`}>
+          <rect width="64" height="64" rx="14" />
+        </clipPath>
+      </defs>
+      <rect width="64" height="64" rx="14" fill={`url(#${id}-bg)`} />
+      <g clipPath={`url(#${id}-clip)`}>
+        <path d="M28 14 L36 14 L60 64 L4 64 Z" fill="#0f172a" />
+        <path d="M31.6 18 L32.4 18 L32.8 24 L31.2 24 Z" fill="#ffffff" />
+        <path d="M31 29 L33 29 L33.6 38 L30.4 38 Z" fill="#ffffff" />
+        <path d="M30.1 44 L33.9 44 L35 60 L29 60 Z" fill="#ffffff" />
+      </g>
+    </svg>
+  );
+}
